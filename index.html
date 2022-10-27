@@ -69,10 +69,26 @@
     </div>
     <hr/>
     <section class='special-day'>
-        <h3 class='title'>발렌타인 데이</h3>
+        <h3 class='title'>예진 데이</h3>
         <div class='date-box'>
             <p id='valentine' class='days-left'>0일 남음</p>
-            <p class='date'>2023.2.14</p>
+            <p class='date'>2023.2.13</p>
+        </div>
+    </section>
+    <hr/>
+    <section class='special-day'>
+        <h3 class='title'>200일</h3>
+        <div class='date-box'>
+            <p id='twohund' class='days-left'>0일 남음</p>
+            <p id='twohund-date' class='date'>0000.00.00</p>
+        </div>
+    </section>
+    <hr/>
+    <section class='special-day'>
+        <h3 class='title'>300일</h3>
+        <div class='date-box'>
+            <p id='threehund' class='days-left'>0일 남음</p>
+            <p id='threehund-date' class='date'>0000.00.00</p>
         </div>
     </section>
     <hr/>
@@ -97,10 +113,30 @@
         console.log(diff);
         $("#love").text(diff + "일 째");
         //기념일까지 남은 날짜는?
-        var valentine = new Date('2023-02-14');
+        var valentine = new Date('2023-02-13');
         var diff2 = Math.floor((valentine.getTime()-now.getTime())/(1000*60*60*24)+1) ;
         console.log(diff2);
         $("#valentine").text(diff2 + "일 남음");
+        //200일은 언제인가?
+        var twohund = new Date(start.getTime() + 199 * (1000*60*60*24));
+        var twohundDate = twohund.getFullYear() + '.' + (twohund.getMonth()+1) + '.' + twohund.getDate();
+        $('#twohund-date').text(twohundDate); 
+
+        //기념일까지 남은 날짜는?
+        var Diff4 = twohund.getTime() - now.getTime();
+        var day4 = Math.floor(Diff4 / (1000 * 60 * 60 * 24) + 1);
+        $('#twohund').text(day4 + '일 남음');
+
+        //300일은 언제인가?
+        var threehund = new Date(start.getTime() + 299 * (1000*60*60*24));
+        var threehundDate = threehund.getFullYear() + '.' + (threehund.getMonth()+1) + '.' + threehund.getDate();
+        $('#threehund-date').text(threehundDate); 
+
+        //기념일까지 남은 날짜는?
+        var Diff5 = threehund.getTime() - now.getTime();
+        var day5 = Math.floor(Diff5 / (1000 * 60 * 60 * 24) + 1);
+        $('#threehund').text(day5 + '일 남음');
+
         //천일은 언제인가?
         var thousand = new Date(start.getTime() + 999 * (1000*60*60*24));
         var thousandDate = thousand.getFullYear() + '.' + (thousand.getMonth()+1) + '.' + thousand.getDate();
