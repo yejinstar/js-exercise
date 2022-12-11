@@ -5,56 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>윤건바보</title>
-    <style>
-        * {
-            color: #333333;
-        }
-        p {
-            margin-bottom: 1px;
-        }
-        .photos {
-            margin-top: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #duhee {
-            width:150px;
-            height:150px;
-            object-fit:cover;
-            border-radius:50%;
-            margin-right: 30px;
-        }
-        #jisook {
-            width:150px;
-            height:150px;
-            object-fit:cover;
-            border-radius:50%;
-            margin-left: 30px;
-        }
-        #heart {
-            width:50px;
-            height:50px;
-        }
-        .gray {
-            color: #a0a0a0;
-        }
-        .special-day {
-            display: flex;
-            justify-content: space-between;
-        }
-        .title {
-            display: flex;
-            align-items: center;
-        }
-        .days-left {
-            text-align: right;
-        }
-        .date {
-            text-align: right;
-            color: #a0a0a0;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
 </head>
 <body class="container">
     <section class='photos'>
@@ -85,18 +37,18 @@
     </section>
     <hr/>
     <section class='special-day'>
-        <h3 class='title'>200일</h3>
-        <div class='date-box'>
-            <p id='twohund' class='days-left'>0일 남음</p>
-            <p id='twohund-date' class='date'>0000.00.00</p>
-        </div>
-    </section>
-    <hr/>
-    <section class='special-day'>
         <h3 class='title'>300일</h3>
         <div class='date-box'>
             <p id='threehund' class='days-left'>0일 남음</p>
             <p id='threehund-date' class='date'>0000.00.00</p>
+        </div>
+    </section>
+    <hr/>
+    <section class='special-day'>
+        <h3 class='title'>400일</h3>
+        <div class='date-box'>
+            <p id='fourhund' class='days-left'>0일 남음</p>
+            <p id='fourhund-date' class='date'>0000.00.00</p>
         </div>
     </section>
     <hr/>
@@ -121,41 +73,42 @@
         var diff = Math.floor((now.getTime()-start.getTime())/(1000*60*60*24)+1) ;
         console.log(diff);
         $("#love").text(diff + "일 째");
+
         //기념일까지 남은 날짜는?
         var valentine = new Date('2023-02-13');
         var diff2 = Math.floor((valentine.getTime()-now.getTime())/(1000*60*60*24)+1) ;
         console.log(diff2);
         $("#valentine").text(diff2 + "일 남음");
+
         //기념일까지 남은 날짜는?
         var christmas = new Date('2022-12-25');
         var diff12 = Math.floor((christmas.getTime()-now.getTime())/(1000*60*60*24)+1) ;
         console.log(diff12);
         $("#christmas").text(diff12 + "일 남음");
-        //200일은 언제인가?
-        var twohund = new Date(start.getTime() + 199 * (1000*60*60*24));
-        var twohundDate = twohund.getFullYear() + '.' + (twohund.getMonth()+1) + '.' + twohund.getDate();
-        $('#twohund-date').text(twohundDate); 
-
-        //기념일까지 남은 날짜는?
-        var Diff4 = twohund.getTime() - now.getTime();
+        
+        //400일은 언제인가?
+        var fourhund = new Date(start.getTime() + 399 * (1000*60*60*24));
+        var fourhundDate = fourhund.getFullYear() + '.' + (fourhund.getMonth()+1) + '.' + fourhund.getDate();
+        $('#fourhund-date').text(fourhundDate); 
+        //400일까지 남은 날짜는?
+        var Diff4 = fourhund.getTime() - now.getTime();
         var day4 = Math.floor(Diff4 / (1000 * 60 * 60 * 24) + 1);
-        $('#twohund').text(day4 + '일 남음');
+        $('#fourhund').text(day4 + '일 남음');
 
         //300일은 언제인가?
         var threehund = new Date(start.getTime() + 299 * (1000*60*60*24));
         var threehundDate = threehund.getFullYear() + '.' + (threehund.getMonth()+1) + '.' + threehund.getDate();
         $('#threehund-date').text(threehundDate); 
-
-        //기념일까지 남은 날짜는?
+        //300일까지 남은 날짜는?
         var Diff5 = threehund.getTime() - now.getTime();
         var day5 = Math.floor(Diff5 / (1000 * 60 * 60 * 24) + 1);
         $('#threehund').text(day5 + '일 남음');
 
-        //천일은 언제인가?
+        //1000일은 언제인가?
         var thousand = new Date(start.getTime() + 999 * (1000*60*60*24));
         var thousandDate = thousand.getFullYear() + '.' + (thousand.getMonth()+1) + '.' + thousand.getDate();
         $('#thousand-date').text(thousandDate); 
-        //기념일까지 남은 날짜는?
+        //1000일까지 남은 날짜는?
         var Diff3 = thousand.getTime() - now.getTime();
         var day3 = Math.floor(Diff3 / (1000 * 60 * 60 * 24) + 1);
         $('#thousand').text(day3 + '일 남음');
