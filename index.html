@@ -29,18 +29,18 @@
     </section>
     <hr/>
     <section class='special-day'>
-        <h3 class='title'>크리스마스</h3>
-        <div class='date-box'>
-            <p id='christmas' class='days-left'>0일 남음</p>
-            <p class='date'>2022.12.25</p>
-        </div>
-    </section>
-    <hr/>
-    <section class='special-day'>
         <h3 class='title'>300일</h3>
         <div class='date-box'>
             <p id='threehund' class='days-left'>0일 남음</p>
             <p id='threehund-date' class='date'>0000.00.00</p>
+        </div>
+    </section>
+    <hr/>
+    <section class='special-day'>
+        <h3 class='title'>윤건 데이</h3>
+        <div class='date-box'>
+            <p id='gunsday' class='days-left'>0일 남음</p>
+            <p class='date'>2023.06.21</p>
         </div>
     </section>
     <hr/>
@@ -81,10 +81,10 @@
         $("#valentine").text(diff2 + "일 남음");
 
         //기념일까지 남은 날짜는?
-        var christmas = new Date('2022-12-25');
+        var christmas = new Date('2023-06-21');
         var diff12 = Math.floor((christmas.getTime()-now.getTime())/(1000*60*60*24)+1) ;
         console.log(diff12);
-        $("#christmas").text(diff12 + "일 남음");
+        $("#gunsday").text(diff12 + "일 남음");
         
         //400일은 언제인가?
         var fourhund = new Date(start.getTime() + 399 * (1000*60*60*24));
