@@ -17,13 +17,13 @@
     <div class='container d-flex flex-column justify-content-center align-items-center mt-3'>
         <h3>맬렁♥깡봇</h3>
         <h3 id='love'>0일째</h3>
-        <h4 class="date">2022.5.21</h4>
+        <h4 class="date">♥2022.5.21♥</h4>
     </div>
     <hr/>
     <section class='special-day'>
         <h3 class='title'>예진 데이</h3>
         <div class='date-box'>
-            <p id='valentine' class='days-left'>0일 남음</p>
+            <p id='yejinsday' class='days-left'>0일 남음</p>
             <p class='date'>2023.2.13</p>
         </div>
     </section>
@@ -53,6 +53,14 @@
     </section>
     <hr/>
     <section class='special-day'>
+        <h3 class='title'>500일</h3>
+        <div class='date-box'>
+            <p id='fivehund' class='days-left'>0일 남음</p>
+            <p id='fivehund-date' class='date'>0000.00.00</p>
+        </div>
+    </section>
+    <hr/>
+    <section class='special-day'>
         <h3 class='title'>1000일</h3>
         <div class='date-box'>
             <p id='thousand' class='days-left'>0일 남음</p>
@@ -78,7 +86,7 @@
         var valentine = new Date('2023-02-13');
         var diff2 = Math.floor((valentine.getTime()-now.getTime())/(1000*60*60*24)+1) ;
         console.log(diff2);
-        $("#valentine").text(diff2 + "일 남음");
+        $("#yejinsday").text(diff2 + "일 남음");
 
         //기념일까지 남은 날짜는?
         var christmas = new Date('2023-06-21');
@@ -103,6 +111,15 @@
         var Diff5 = threehund.getTime() - now.getTime();
         var day5 = Math.floor(Diff5 / (1000 * 60 * 60 * 24) + 1);
         $('#threehund').text(day5 + '일 남음');
+
+        //500일은 언제인가?
+        var fivehund = new Date(start.getTime() + 499 * (1000*60*60*24));
+        var fivehundDate = fivehund.getFullYear() + '.' + (fivehund.getMonth()+1) + '.' + fivehund.getDate();
+        $('#fivehund-date').text(fivehundDate); 
+        //500일까지 남은 날짜는?
+        var Diff6 = fivehund.getTime() - now.getTime();
+        var day6 = Math.floor(Diff6 / (1000 * 60 * 60 * 24) + 1);
+        $('#fivehund').text(day6 + '일 남음');
 
         //1000일은 언제인가?
         var thousand = new Date(start.getTime() + 999 * (1000*60*60*24));
